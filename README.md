@@ -106,8 +106,9 @@ Esse tipo de lógica pode ser aplicado em:
 > Pequenas regras condicionais como essa são a base de sistemas maiores de recomendação, precificação e personalização.
 
 ---
-## Desafio 1 -  Automatizando Benefícios no Varejo: Decisão de Promoções por Faixa de Compra
-## Desafio 2 - Validação de Transação Bancária com Operadores em Python
+# Desafio 1 -  Automatizando Benefícios no Varejo: Decisão de Promoções por Faixa de Compra
+# Desafio 2 - Validação de Transação Bancária com Operadores em Python
+# Desafio 3 - Padronização de Nomes de Clientes em Python
 
 ## 💼 Autor
 
