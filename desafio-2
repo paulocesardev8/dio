@@ -1,0 +1,12 @@
+# Leitura dos três valores inteiros em uma única linha 
+entrada = input()
+valor_transacao, taxa_servico, pagamento_minimo = map(int, entrada.split())
+
+# Calcula o valor final da transação
+valor_final = valor_transacao - taxa_servico
+
+# Verifica se o valor final é suficiente
+if valor_final >= pagamento_minimo:
+    print("Aprovada")
+else:
+    print("Recusada")
