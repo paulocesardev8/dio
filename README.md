@@ -1,46 +1,53 @@
-# 📦 Sistema de Promoções Automatizadas (Python)
+# 📊 Desafios de Lógica e Manipulação de Dados com Python
 
 ## 🧠 Contexto
 
-Este projeto simula um sistema de decisão automática de benefícios para clientes em um cenário de varejo.
+Este repositório reúne a resolução de três desafios práticos focados em:
 
-A lógica foi desenvolvida para:
+* Estruturas condicionais
+* Operadores e validação lógica
+* Manipulação e padronização de strings
 
-> **analisar o valor da compra e aplicar automaticamente uma recompensa (mensagem, brinde ou desconto)**
+Os problemas simulam cenários reais de negócio, como:
 
-Esse tipo de regra é amplamente utilizado em:
-
-* E-commerce
-* Sistemas de CRM
-* Estratégias de conversão e retenção
+* Sistemas de promoção em varejo
+* Validação de transações financeiras
+* Padronização de dados de clientes
 
 ---
 
 ## 🎯 Objetivo
 
-Implementar uma estrutura condicional que:
+Desenvolver soluções simples, eficientes e legíveis em Python, aplicando boas práticas de:
 
-* Recebe o valor total da compra
-* Avalia faixas de valor
-* Retorna a mensagem correta conforme regras de negócio
-
----
-
-## 📊 Regras de Negócio
-
-| Valor da Compra (R$) | Benefício                 |
-| -------------------- | ------------------------- |
-| Menor que 50         | Mensagem de agradecimento |
-| 50 a 99              | Brinde                    |
-| 100 a 199            | Desconto de R$10          |
-| 200 ou mais          | Desconto de R$25          |
+* Lógica de programação
+* Tratamento de entrada
+* Clareza na saída de dados
 
 ---
 
-## 💻 Implementação
+# 📦 Desafio 1 — Sistema de Promoções Automatizadas
 
-```python id="promo-system"
-# Lê o valor total da compra como inteiro 
+## 📖 Descrição
+
+O sistema analisa o valor total de uma compra e define automaticamente o benefício do cliente.
+
+---
+
+## 📊 Regras
+
+| Valor (R$) | Resultado        |
+| ---------- | ---------------- |
+| < 50       | Agradecimento    |
+| 50–99      | Brinde           |
+| 100–199    | Desconto de R$10 |
+| ≥ 200      | Desconto de R$25 |
+
+---
+
+## 💻 Código
+
+```python
 valor_compra = int(input())
 
 if valor_compra < 50:
@@ -55,63 +62,133 @@ else:
 
 ---
 
-## ▶️ Exemplo de Execução
+## 🚀 Aplicação real
 
-| Entrada | Saída                            |
-| ------- | -------------------------------- |
-| 30      | Obrigado por comprar conosco!    |
-| 75      | Parabens! Voce ganhou um brinde! |
-| 150     | Desconto de 10 reais aplicado!   |
-| 250     | Desconto de 25 reais aplicado!   |
+* Estratégias de aumento de ticket médio
+* Regras de incentivo em e-commerce
+* Automação de campanhas promocionais
 
 ---
 
-## ⚙️ Lógica Aplicada
+# 💳 Desafio 2 — Validação de Transação Bancária
 
-O sistema utiliza:
+## 📖 Descrição
+
+O sistema valida se uma transação pode ser aprovada com base no valor líquido após taxa.
+
+---
+
+## 🧮 Regra
+
+```text
+valor_final = valor_transacao - taxa_servico
+```
+
+* Se valor_final ≥ pagamento mínimo → Aprovada
+* Caso contrário → Recusada
+
+---
+
+## 💻 Código
+
+```python
+entrada = input()
+valor_transacao, taxa_servico, pagamento_minimo = map(int, entrada.split())
+
+valor_final = valor_transacao - taxa_servico
+
+if valor_final >= pagamento_minimo:
+    print("Aprovada")
+else:
+    print("Recusada")
+```
+
+---
+
+## 🚀 Aplicação real
+
+* Sistemas bancários
+* Gateways de pagamento
+* Validação de margem financeira
+
+---
+
+# 🧾 Desafio 3 — Padronização de Nomes de Clientes
+
+## 📖 Descrição
+
+O sistema recebe nomes despadronizados e retorna uma versão formatada corretamente.
+
+---
+
+## 🎯 Requisitos
+
+* Remover espaços extras
+* Garantir apenas um espaço entre palavras
+* Primeira letra maiúscula
+* Restante minúscula
+
+---
+
+## 💻 Código
+
+```python
+entrada = input()
+
+palavras = entrada.strip().split()
+palavras_formatadas = [p.capitalize() for p in palavras]
+
+nome_formatado = ' '.join(palavras_formatadas)
+
+print(nome_formatado)
+```
+
+---
+
+## 🚀 Aplicação real
+
+* Limpeza de base de dados (CRM)
+* Padronização de leads
+* Preparação de dados para análise
+
+---
+
+# 🧠 Conceitos Aplicados
 
 * Estruturas condicionais (`if`, `elif`, `else`)
-* Comparações numéricas
-* Fluxo sequencial de decisão
-
-### 📌 Estratégia:
-
-A ordem das condições garante que cada valor seja avaliado corretamente sem sobreposição.
+* Operadores matemáticos
+* Manipulação de strings
+* List comprehension
+* Entrada e saída de dados
 
 ---
 
-## 🚀 Aplicação no Mundo Real
+# 🔥 Insights Técnicos
 
-Esse tipo de lógica pode ser aplicado em:
-
-* 🛒 Sistemas de checkout
-* 📊 Estratégias de incentivo de compra
-* 🎯 Campanhas promocionais automatizadas
-* 📈 Aumento de ticket médio
+> Pequenos blocos de lógica como esses são a base de sistemas maiores de decisão, automação e análise de dados.
 
 ---
 
-## 🧩 Possíveis Melhorias
+# 💼 Conexão com o Mercado
 
-* [ ] Transformar em função reutilizável
-* [ ] Integrar com sistema de pedidos (API)
-* [ ] Criar interface web
-* [ ] Adicionar múltiplas regras promocionais
-* [ ] Personalização por tipo de cliente
+Esses desafios refletem problemas comuns em:
+
+* 📊 Marketing Digital (validação de métricas e regras de campanha)
+* 💳 Finanças (aprovação de transações)
+* 🧾 Data Cleaning (qualidade de dados)
+
+---
+
+# 🚀 Possíveis Evoluções
+
+* [ ] Transformar em funções reutilizáveis
+* [ ] Criar API com Flask ou FastAPI
+* [ ] Integrar com banco de dados
+* [ ] Criar interface web simples
 
 ---
 
-## 💡 Insight Estratégico
-
-> Pequenas regras condicionais como essa são a base de sistemas maiores de recomendação, precificação e personalização.
-
----
-### Desafio 1 -  Automatizando Benefícios no Varejo: Decisão de Promoções por Faixa de Compra
-### Desafio 2 - Validação de Transação Bancária com Operadores em Python
-### Desafio 3 - Padronização de Nomes de Clientes em Python
-
-## 💼 Autor
+# 👨‍💻 Autor
 
 **Paulo Cesar**
 📊 Tráfego Pago | Marketing Digital | Análise de Dados
-
