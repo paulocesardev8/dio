@@ -1,0 +1,14 @@
+# Lê a entrada do usuário (nome do cliente)
+entrada = input()
+
+# Remove espaços extras no início/fim e separa as palavras
+palavras = entrada.strip().split()
+
+# Capitaliza cada palavra
+palavras_formatadas = [palavra.capitalize() for palavra in palavras]
+
+# Junta com um único espaço
+nome_formatado = ' '.join(palavras_formatadas)
+
+# Exibe o resultado
+print(nome_formatado)
