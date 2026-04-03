@@ -1,0 +1,156 @@
+# 🔍 Identificação de Clientes Exclusivos com Python (Sets)
+
+## 🧠 Contexto
+
+Este projeto simula um cenário comum em integração de dados, onde diferentes sistemas fornecem listas de clientes com possíveis duplicações e inconsistências.
+
+O objetivo é identificar rapidamente:
+
+> **quais clientes são exclusivos de cada projeto**, eliminando redundâncias e facilitando análises mais precisas.
+
+---
+
+## 🎯 Objetivo
+
+Desenvolver um programa em Python que:
+
+* Recebe duas listas de clientes
+* Remove duplicatas automaticamente
+* Identifica clientes que aparecem em apenas uma das listas
+* Retorna os nomes em ordem alfabética
+
+---
+
+## 📥 Entrada
+
+* Duas linhas de texto
+* Cada linha contém nomes separados por espaço
+* As listas podem estar vazias
+
+### Exemplo:
+
+```text
+ana bruno carla
+carla diego
+```
+
+---
+
+## 📤 Saída
+
+* Nomes exclusivos (presentes em apenas uma lista)
+* Ordenados alfabeticamente
+* Separados por espaço
+
+### Exemplo:
+
+```text
+ana bruno diego
+```
+
+Se não houver nomes exclusivos:
+
+```text
+Nenhum
+```
+
+---
+
+## 💻 Implementação
+
+```python id="set-diff"
+# Leitura das listas de clientes de cada projeto
+linha1 = input().strip()
+linha2 = input().strip()
+
+# Conversão para conjuntos (elimina duplicatas)
+clientes_projeto1 = set(linha1.split()) if linha1 else set()
+clientes_projeto2 = set(linha2.split()) if linha2 else set()
+
+# Diferença simétrica (exclusivos)
+exclusivos = clientes_projeto1.symmetric_difference(clientes_projeto2)
+
+# Saída
+if exclusivos:
+    print(' '.join(sorted(exclusivos)))
+else:
+    print("Nenhum")
+```
+
+---
+
+## ⚙️ Lógica Aplicada
+
+### 📌 Estrutura principal
+
+* `set()` → remove duplicatas
+* `split()` → separa nomes
+* `symmetric_difference()` → encontra exclusivos
+* `sorted()` → ordena alfabeticamente
+
+---
+
+### 🧠 Diferença Simétrica
+
+```text
+A Δ B = (A ∪ B) - (A ∩ B)
+```
+
+👉 Retorna elementos que estão em apenas um dos conjuntos
+
+---
+
+## 🧪 Exemplos
+
+| Entrada                       | Saída           |
+| ----------------------------- | --------------- |
+| ana bruno carla / carla diego | ana bruno diego |
+| lucas maria / lucas maria     | Nenhum          |
+| joao / (vazio)                | joao            |
+| (vazio) / paula rafa          | paula rafa      |
+
+---
+
+## 🚀 Aplicação no Mundo Real
+
+Este tipo de lógica é amplamente utilizado em:
+
+* 📊 Integração de dados (ETL)
+* 🧾 CRM (deduplicação de clientes)
+* 📈 Marketing (evitar sobreposição de públicos)
+* 🗂️ Data cleaning (qualidade de dados)
+
+---
+
+## 🧩 Possíveis Melhorias
+
+* [ ] Ignorar diferenças de maiúsculas/minúsculas
+* [ ] Normalizar nomes (ex: acentos)
+* [ ] Integrar com banco de dados
+* [ ] Criar versão para múltiplas listas
+
+---
+
+## 💡 Insight Técnico
+
+> Operações com conjuntos são extremamente eficientes para comparação de dados e são amplamente utilizadas em pipelines de dados.
+
+---
+
+## 💼 Autor
+
+**Paulo Cesar**
+📊 Tráfego Pago | Marketing Digital | Análise de Dados
+
+---
+
+# 🚨 Dica estratégica (nível carreira)
+
+Esse projeto aqui, junto com os outros que você fez, já forma um **pacote forte de base em lógica + dados**.
+
+Se você juntar tudo em um único repo com nome tipo:
+
+```bash
+python-data-logic-for-business
+```
+
